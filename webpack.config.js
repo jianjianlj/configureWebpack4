@@ -27,14 +27,15 @@ module.exports = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: {
-                            importLoaders: 2,
-                            modules: true
-                        }
                     },
                     'sass-loader',
                     'postcss-loader'
                 ]
+            },{
+                test: /\.(eot|ttf|svg|woff)$/,
+                use: {
+                    loader: 'file-loader'
+                }
             }
 
 

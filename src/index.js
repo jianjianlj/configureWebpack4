@@ -7,17 +7,23 @@
 // new Sidebar();
 // new Content();
 
-import Avaer from './avaer.jpg';
-import style from './index.scss';
-import createAvatar from './createAvatar';
+// import Avaer from './avaer.jpg';
+// import style from './index.scss';
+// import createAvatar from './createAvatar';
 
-createAvatar();
+// createAvatar();
 
-var img = new Image();
+// var img = new Image();
 
-img.src = Avaer;
-img.classList.add(style.avatar);
+// img.src = Avaer;
+// img.classList.add(style.avatar);
+
+// var root = document.getElementById('root');
+
+// root.append(img);
+
+import './index.scss';
 
 var root = document.getElementById('root');
 
-root.append(img);
+root.innerHTML = '<div class="iconfont icondashboard"></div>';
