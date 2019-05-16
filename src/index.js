@@ -9,6 +9,9 @@
 
 import Avaer from './avaer.jpg';
 import './index.scss';
+import createAvatar from './createAvatar';
+
+createAvatar();
 
 var img = new Image();
 
