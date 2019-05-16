@@ -8,7 +8,7 @@
 // new Content();
 
 import Avaer from './avaer.jpg';
-import './index.scss';
+import style from './index.scss';
 import createAvatar from './createAvatar';
 
 createAvatar();
@@ -16,7 +16,7 @@ createAvatar();
 var img = new Image();
 
 img.src = Avaer;
-img.classList.add('avatar');
+img.classList.add(style.avatar);
 
 var root = document.getElementById('root');
 
