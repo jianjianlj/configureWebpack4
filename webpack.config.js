@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //作用：会在打�
 const CleanWebpackPlugin = require('clean-webpack-plugin');//作用：会在打包之前就会生除上次打包的文件
 
 module.exports = {
-    mode: 'production',//是生产环境还是开发环境
+    mode: 'development',//是生产环境还是开发环境
+    devtool: 'cheap-module-eval-source-map',//在开发环境中使用这种组合方式是比较好的
+    //devtool: 'cheap-module-source-map',在生产环境中是用这种组合方式是比较好的
     entry: { 
         main:'./src/index.js', //webpack打包的入口
     },

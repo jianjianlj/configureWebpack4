@@ -22,8 +22,11 @@
 
 // root.append(img);
 
-import './index.scss';
+// import './index.scss';
 
-var root = document.getElementById('root');
+// var root = document.getElementById('root');
 
-root.innerHTML = '<div class="iconfont icondashboard"></div>';
+// root.innerHTML = '<div class="iconfont icondashboard"></div>';
+
+
+console.log('niahskadhlahsdlasd');
