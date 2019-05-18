@@ -29,4 +29,4 @@
 // root.innerHTML = '<div class="iconfont icondashboard"></div>';
 
 
-console.log('niahskadhlahsdlasd');
+console.log('hello world nihao');

@@ -9,6 +9,10 @@ module.exports = {
     entry: { 
         main:'./src/index.js', //webpack打包的入口
     },
+    devServer: {
+        contentBase: './dist',
+        open: true,
+    },
     module: { //模块打包---样式，字体文件。。
         rules: [
             {

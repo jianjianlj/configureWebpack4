@@ -4,7 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "jason",
@@ -21,6 +23,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.0"
   }
 }
