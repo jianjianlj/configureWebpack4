@@ -1,32 +1,27 @@
-// var Header = require('./header.js');
-// var Sidebar = require('./sidebar.js');
-// var Content = require('./content.js');
+// import counter from "./counter";
+// import number from "./number";
+
+// import './style.css';
+
+// var btn = document.createElement('button');
+// btn.innerHTML = '新增';
+// document.body.appendChild(btn);
+// btn.onclick = function() {
+//     var div = document.createElement('div');
+//     div.innerHTML = 'itme';
+//     document.body.appendChild(div);
+// }
+
+import counter from './counter.js';
+import number from './number.js';
+
+counter();
+number();
 
 
-// new Header();
-// new Sidebar();
-// new Content();
-
-// import Avaer from './avaer.jpg';
-// import style from './index.scss';
-// import createAvatar from './createAvatar';
-
-// createAvatar();
-
-// var img = new Image();
-
-// img.src = Avaer;
-// img.classList.add(style.avatar);
-
-// var root = document.getElementById('root');
-
-// root.append(img);
-
-// import './index.scss';
-
-// var root = document.getElementById('root');
-
-// root.innerHTML = '<div class="iconfont icondashboard"></div>';
-
-
-console.log('hello world nihao');
+if (module.hot) {
+    module.hot.accept('./number',()=>{
+        document.body.removeChild(document.getElementById('number'));
+        number();
+    })
+}
