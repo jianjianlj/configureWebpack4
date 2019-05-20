@@ -20,24 +20,31 @@ module.exports = {
     module: { //模块打包---样式，字体文件。。
         rules: [
             {
-                test: /\,js$/,
-                exclude: '/node_modules', //'过滤掉node_modules里面的js文件，因为其里面文件已经被转化好了
+                test: /\.js$/,
+                exclude: /node_modules/, //'过滤掉node_modules里面的js文件，因为其里面文件已经被转化好了
                 loader: 'babel-loader',
-                options: {
-                    presets: [["@babel/preset-env",{
-                        // useBuiltIns: 'usage',
-                        // targets: {
-                        //     chorme: '67' //运行在浏览器的什么版本上
-                        // }
-                        // "plugins": [['@babel/plugin-transform-runtime',{
+                // options: {
+                    // 业务代码
+                    // presets: [
+                    //     [
+                    //         "@babel/preset-env",{
+                    //             "useBuiltIns": 'usage',
+                    //             // "targets": {
+                    //             //     chorme: '67' //运行在浏览器的什么版本上
+                    //             // }
+                    //         }
+                    //     ],
+                    //     "@babel/preset-react"
+                    // ] 
+                    //ui组件/打包内库
+                    // "plugins": [['@babel/plugin-transform-runtime',{
                         //     "absoluteRuntime": false,
                         //     "corejs": 2,// 当值为2的时候需要安装npm install --save @babel/runtime-corejs2
                         //     "helpers": true,
                         //     "regenerator": true,
                         //     "useESModules": false
-                        // }]]
-                    }]]
-                }
+                    // }]]
+                // }
             },{
                 test: /\.jpg$/,
                 use: {
@@ -78,6 +85,7 @@ module.exports = {
             template: 'src/index.html'
         }),
         new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: 'dist'}), //api升级参数只接收的数据合适是object
+        // new CleanWebpackPlugin('dist'),
         new webpack.HotModuleReplacementPlugin({}),
     ],
     output: {
