@@ -88,6 +88,9 @@ module.exports = {
         // new CleanWebpackPlugin('dist'),
         new webpack.HotModuleReplacementPlugin({}),
     ],
+    optimization: { //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好
+        usedExports: true
+    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname,'dist')
