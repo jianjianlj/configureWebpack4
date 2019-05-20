@@ -73,10 +73,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: 'dist'}), //api升级参数只接收的数据合适是object
+        new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: 'dist',root: path.resolve(__dirname, '../')
+            
+        }), //api升级参数只接收的数据合适是object
     ],
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
+    },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname,'dist')
+        path: path.resolve(__dirname,'../dist')
     }
 }
