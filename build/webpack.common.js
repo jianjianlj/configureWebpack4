@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');//作用：会在打�
 module.exports = {
     entry: { 
         main:'./src/index.js', //webpack打包的入口
+        server: './src/index.js'
     },
     module: { //模块打包---样式，字体文件。。
         rules: [
@@ -80,7 +81,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: "all",//chunks的键值可以选择是对同步的模块(initial)/异步的模块进行代码分割(aysnc);all表示对同步/异步都代码分割
-            minSize: 0,//对引入的模块的大小，如果大于30kb就进行代码分割
+            minSize: 30000,//对引入的模块的大小，如果大于30kb就进行代码分割
             maxSize: 0,//对引入的代码模块是否进行二次分割，分割的大小一maxSize的设定值
             minChunks: 1,//依据引入的模块使用次数进行是否判断代码分割
             maxAsyncRequests: 5,//对获取请求模块最大是5个，超过了5个，前5个模块是要进行代码分割，超过的部分就不进行代码分割
@@ -91,13 +92,13 @@ module.exports = {
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10 ,//优先级到底是进vendors组还是default组
-                    filename: 'vendor.js'
+                    name: 'vendors'
                 },
-            default: {
+                default: {
                     // minChunks: 2,
                     priority: -20,
                     reuseExistingChunk: true,
-                    filename: 'default.js'
+                    name: 'default'
                 }
             }
         }
