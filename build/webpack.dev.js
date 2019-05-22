@@ -12,12 +12,33 @@ const devConfig = {
         hot: true, //HMR模块更新
         // hotOnly: true //编译失败也不刷新页面
     },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2
+                        }
+                    },
+                    'sass-loader',
+                    'postcss-loader' //会在调用autoprefixer插件，在css3的标签前自动添加兼容浏览器前缀
+                ]
+            },{
+                test: /\.css$/,
+                use: ['style-loader','css-loader','postcss-loader']
+            }
+        ]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin({}),
     ],
-    optimization: { //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好
-        usedExports: true
-    },
+    // optimization: { //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好
+    //     usedExports: true
+    // },
 }
 
 module.exports = webpackMerge(commonConfig,devConfig);

@@ -46,22 +46,6 @@ module.exports = {
                     }
                 } 
             },{
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 2
-                        }
-                    },
-                    'sass-loader',
-                    'postcss-loader' //会在调用autoprefixer插件，在css3的标签前自动添加兼容浏览器前缀
-                ]
-            },{
-                test: /\.css$/,
-                use: ['style-loader','css-loader','postcss-loader']
-            },{
                 test: /\.(eot|ttf|svg|woff)$/,//字体文件打包
                 use: {
                     loader: 'file-loader'
@@ -78,6 +62,9 @@ module.exports = {
         }), //api升级参数只接收的数据合适是object
     ],
     optimization: {
+         //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好
+        usedExports: true,
+
         splitChunks: {
             chunks: "all",//chunks的键值可以选择是对同步的模块(initial)/异步的模块进行代码分割(aysnc);all表示对同步/异步都代码分割
             minSize: 30000,//对引入的模块的大小，如果大于30kb就进行代码分割
@@ -104,6 +91,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
+        chunkFilename: '[name].chunk.js',//区别：
         path: path.resolve(__dirname,'../dist')
     }
 }
