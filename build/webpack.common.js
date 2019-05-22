@@ -5,7 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');//作用：会在打�
 module.exports = {
     entry: { 
         main:'./src/index.js', //webpack打包的入口
-        server: './src/index.js'
     },
     module: { //模块打包---样式，字体文件。。
         rules: [
