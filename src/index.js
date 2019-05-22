@@ -1,10 +1,10 @@
-// document.addEventListener('click',()=>{
-//     import(/* webpackPrefetch: true */'./common.js').then(({default: func}) => {
-//         func();
-//     })
-// })
-import style from './style.css';
-import style1 from './style1.css';
+import _ from 'lodash';
+import $ from 'jquery';
+
+const dom = $('div');
+
+dom.html(_.join(['lee','pou','hji'],'----'));
+
+$('body').append(dom);
 
 
-console.log('dell-li');

@@ -39,6 +39,10 @@ const devConfig = {
     // optimization: { //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好
     //     usedExports: true
     // },
+    output: {
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js',//区别：在页面直接应用的模块是走的filename，间接引用的模块走的是chunkFilename
+    }
 }
 
 module.exports = webpackMerge(commonConfig,devConfig);

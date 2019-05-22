@@ -32,7 +32,11 @@ const prodConfig = {
     },
     plugins: [
         new MiniCssExtractPlugin(),//对css文件进行代码分割打包
-    ]
+    ],
+    output: {
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].chunk.js',//区别：在页面直接应用的模块是走的filename，间接引用的模块走的是chunkFilename
+    }
 }
 
 module.exports = webpackMerge(commonConfig,prodConfig);

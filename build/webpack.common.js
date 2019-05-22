@@ -90,8 +90,8 @@ module.exports = {
         }
     },
     output: {
-        filename: '[name].js',
-        chunkFilename: '[name].chunk.js',//区别：
+        // filename: '[name].js',
+        // chunkFilename: '[name].chunk.js',//区别：在页面直接应用的模块是走的filename，间接引用的模块走的是chunkFilename
         path: path.resolve(__dirname,'../dist')
     }
 }
