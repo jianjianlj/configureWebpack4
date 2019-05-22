@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //作用：会在打包之结束后，自动生成一个html文件，并且把打包生成的js文件引入到html文件中
 const CleanWebpackPlugin = require('clean-webpack-plugin');//作用：会在打包之前就会生除上次打包的文件
+const webpack = require('webpack');
 
 module.exports = {
     entry: { 
@@ -11,7 +12,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/, //'过滤掉node_modules里面的js文件，因为其里面文件已经被转化好了
-                loader: 'babel-loader',
+                use: [{
+                    loader: 'babel-loader',
+                },{
+                    loader: 'imports-loader?this=>window' //不要留空格。。。。
+                }],
+                
                 // options: {
                     // 业务代码
                     // presets: [
@@ -60,6 +66,10 @@ module.exports = {
         new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: 'dist',root: path.resolve(__dirname, '../')
             
         }), //api升级参数只接收的数据合适是object
+        new webpack.ProvidePlugin({
+            $: 'jquery',//配置好当你使用模块的时候就会自动帮你引入使用的模块
+            _: 'lodash'
+        })
     ],
     optimization: {
          //mode 为开发环境需要配这个配置项/为生产环境不需要，因为已经默认配置好

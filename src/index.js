@@ -1,10 +1,15 @@
-import _ from 'lodash';
-import $ from 'jquery';
+// import _ from 'lodash';
+// import $ from 'jquery';
+// import {ui} from './jquery.ui.js';
 
-const dom = $('div');
+// const dom = $('div');
 
-dom.html(_.join(['lee','pou','hji'],'----'));
+// dom.html(_.join(['lee','pou','hji'],'----'));
 
-$('body').append(dom);
+// $('body').append(dom);
+
+// ui();
+
+console.log(this===window);
 
 
